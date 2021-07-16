@@ -1,0 +1,40 @@
+//BISMILLAHIR RAHMANIR RAHIM
+
+#include<bits/stdc++.h>
+using namespace std;
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define  endl '\n'
+int main()
+{
+    optimize();
+
+    int t,i;
+    cin>>t;
+    for(i=1;i<=t;i++)
+    {
+        bool x=1;
+        int n,m;
+
+        cin>>n>>m;
+
+        map<pair<int,int>,bool>vis;
+
+        while(m--)
+        {
+            int a,b;
+            cin>>a>>b;
+
+            if(vis[{a,b}]) x =0;
+            vis[{a,b}] = 1;
+        }
+        if(x==0)
+            cout<<"Scenario #"<<i<<": impossible"<<endl;
+        else
+            cout<<"Scenario #"<<i<<": possible"<<endl;
+
+
+    }
+
+
+    return 0;
+}
