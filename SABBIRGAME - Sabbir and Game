@@ -1,0 +1,51 @@
+//https://www.spoj.com/problems/SABBIRGAME/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define endl '\n'
+#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+
+const long long mx = 1e6+123;
+long long a[mx];
+long long n,i;
+
+bool check(long long x)
+{
+    for(i=1;i<=n;i++)
+    {
+        x+= a[i];
+        if(x<=0)
+            return 0;
+    }
+    return 1;
+}
+int main()
+{
+    optimize();
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        for(i=1;i<=n;i++) cin>>a[i];
+
+
+        long long l=0,r = 1e11,ans;
+        while(l<=r)
+        {
+            long long mid = (l+r)>>1;
+
+            if(check(mid))
+            {
+                ans = mid;
+                r = mid-1;
+            }
+            else l = mid+1;
+        }
+        cout<<ans<<endl;
+    }
+
+    return 0;
+}
+
